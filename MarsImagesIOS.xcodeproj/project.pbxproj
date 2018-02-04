@@ -31,6 +31,7 @@
 		4A8BB2681F2D41FF00E07B49 /* ArrowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8BB2671F2D41FF00E07B49 /* ArrowButton.swift */; };
 		4A8BB26A1F2D498900E07B49 /* LeftDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8BB2691F2D498900E07B49 /* LeftDrawerViewController.swift */; };
 		4A8BB26C1F2D504200E07B49 /* MarsImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8BB26B1F2D504200E07B49 /* MarsImageViewController.swift */; };
+		4A99269A20278358009E4989 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4A99269920278357009E4989 /* .swiftlint.yml */; };
 		4A9DE9D01F2BDA160059C9C9 /* MarsPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE9CF1F2BDA160059C9C9 /* MarsPhoto.swift */; };
 		4A9DE9D21F2C15B00059C9C9 /* MER.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE9D11F2C15B00059C9C9 /* MER.swift */; };
 		4A9DE9D41F2C15C00059C9C9 /* Opportunity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9DE9D31F2C15C00059C9C9 /* Opportunity.swift */; };
@@ -97,6 +98,7 @@
 		4A8BB2671F2D41FF00E07B49 /* ArrowButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrowButton.swift; sourceTree = "<group>"; };
 		4A8BB2691F2D498900E07B49 /* LeftDrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftDrawerViewController.swift; sourceTree = "<group>"; };
 		4A8BB26B1F2D504200E07B49 /* MarsImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarsImageViewController.swift; sourceTree = "<group>"; };
+		4A99269920278357009E4989 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		4A9A88C91F550ACF00DF9378 /* MarsImages.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MarsImages.entitlements; sourceTree = "<group>"; };
 		4A9DE9CF1F2BDA160059C9C9 /* MarsPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarsPhoto.swift; sourceTree = "<group>"; };
 		4A9DE9D11F2C15B00059C9C9 /* MER.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MER.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 		4A1680A81F2A8ECE004E30CC = {
 			isa = PBXGroup;
 			children = (
+				4A99269920278357009E4989 /* .swiftlint.yml */,
 				4ACDF36B2012A50600775FC0 /* .gitignore */,
 				4ACDF3692012A47C00775FC0 /* fastlane */,
 				4A9A88C91F550ACF00DF9378 /* MarsImages.entitlements */,
@@ -312,6 +315,7 @@
 			buildConfigurationList = 4A1680D91F2A8ECE004E30CC /* Build configuration list for PBXNativeTarget "MarsImages" */;
 			buildPhases = (
 				5CFB091D09384B9C01BFBD0B /* [CP] Check Pods Manifest.lock */,
+				4A99269820278046009E4989 /* ShellScript */,
 				4A1680AD1F2A8ECE004E30CC /* Sources */,
 				4A1680AE1F2A8ECE004E30CC /* Frameworks */,
 				4A1680AF1F2A8ECE004E30CC /* Resources */,
@@ -405,6 +409,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A99269A20278358009E4989 /* .swiftlint.yml in Resources */,
 				4ACDF36A2012A47C00775FC0 /* fastlane in Resources */,
 				4ACDF36C2012A50600775FC0 /* .gitignore in Resources */,
 				4A1680BF1F2A8ECE004E30CC /* LaunchScreen.storyboard in Resources */,
@@ -442,6 +447,19 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		4A99269820278046009E4989 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		508F34749F1E035687CAAA25 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
